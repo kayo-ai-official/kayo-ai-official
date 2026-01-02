@@ -30,51 +30,77 @@ if(chatBtn) {
     });
 }
 
-// --- NEW ADDITIONS START (Don't delete old code) ---
+// --- 🚀 MASTER ECOSYSTEM UPGRADE (Don't delete old code) ---
 
-// 4. 85+ Services Gallery System
-const serviceData = [
-    { name: "Video Upscaler", icon: "fa-video" },
-    { name: "3D Portrait", icon: "fa-cube" },
-    { name: "Voice Cloner", icon: "fa-microphone" },
-    { name: "Script Writer", icon: "fa-pen" },
-    { name: "AI Relight", icon: "fa-lightbulb" },
-    { name: "Magic Erase", icon: "fa-eraser" }
-    // Aise hi 85 items load honge
-];
+// 4. 85+ Services Data with Categories
+const serviceCategories = {
+    "Video Pro": [
+        { name: "4K Upscaler", icon: "fa-expand" },
+        { name: "AI Slow-Mo", icon: "fa-clock" },
+        { name: "Video Relight", icon: "fa-lightbulb" },
+        { name: "Object Remover", icon: "fa-eraser" }
+    ],
+    "Image AI": [
+        { name: "Old Photo Fix", icon: "fa-history" },
+        { name: "3D Portrait", icon: "fa-cube" },
+        { name: "Background Gen", icon: "fa-mountain" },
+        { name: "Cartoonizer", icon: "fa-user-astronaut" }
+    ],
+    "Voice & Audio": [
+        { name: "Voice Cloner", icon: "fa-microphone-alt" },
+        { name: "Noise Cleaner", icon: "fa-broom" },
+        { name: "Music Gen", icon: "fa-music" }
+    ]
+    // Aise hi 85+ services categories mein load honge
+};
 
-function openGallery() {
-    const modal = document.createElement('div');
-    modal.className = 'gallery-modal';
-    modal.style.display = 'block';
-    
-    let itemsHTML = `<h2 style='text-align:center; color:#ff8c00;'>Kayo 85+ AI Services</h2><div class='gallery-grid'>`;
-    serviceData.forEach(s => {
-        itemsHTML += `<div class='service-item'><i class='fas ${s.icon}'></i>${s.name}</div>`;
+// 5. Section Switcher Logic (Home, Editor, Tools)
+function showSection(sectionId) {
+    document.querySelectorAll('.content-view').forEach(view => {
+        view.style.display = 'none';
     });
-    itemsHTML += `</div><button onclick="this.parentElement.remove()" class='close-btn'>Back to Editor</button>`;
-    
-    modal.innerHTML = itemsHTML;
-    document.body.appendChild(modal);
-}
+    const activeView = document.getElementById(sectionId + '-section');
+    if(activeView) activeView.style.display = 'block';
 
-// 5. Admin & VIP Access Control
-function checkAdminAccess(email) {
-    if(email === KAYO_CONFIG.ADMIN_ID) {
-        alert("Welcome Master Kanhu! Admin Panel Activated.");
-        // Yahan se tum block/unblock kar sakoge
+    if(sectionId === 'tools') {
+        loadToolsGallery();
     }
 }
 
-// Home Button Trigger
+// 6. Tools Gallery Loader
+function loadToolsGallery() {
+    const list = document.getElementById('service-list');
+    if(!list) return;
+    list.innerHTML = ''; // Clear old
+
+    for (const [category, tools] of Object.entries(serviceCategories)) {
+        list.innerHTML += `<div style="grid-column: 1/-1; color: var(--primary); font-size: 14px; margin-top: 15px;">${category}</div>`;
+        tools.forEach(s => {
+            list.innerHTML += `
+                <div class='service-item' onclick="alert('Starting ${s.name}...')">
+                    <i class='fas ${s.icon}'></i>
+                    <p style="font-size: 9px; margin-top: 5px;">${s.name}</p>
+                </div>`;
+        });
+    }
+}
+
+// 7. Admin & VIP Access Control
+function checkAdminAccess(email) {
+    if(email === KAYO_CONFIG.ADMIN_ID) {
+        alert("Welcome Master Kanhu! Admin Panel Activated.");
+        window.location.href = "admin.html";
+    }
+}
+
+// 8. Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    const homeBtn = document.querySelector('.main-home');
-    if(homeBtn) homeBtn.onclick = openGallery;
-    
     console.log("Kayo Neural " + KAYO_CONFIG.SITE_VERSION + " is Online");
+    // Default view: Editor
+    showSection('editor');
 });
 
-// 6. Ratings & Comments Logic
+// 9. Ratings & Comments Logic
 function submitReview(stars, comment) {
     console.log(`New Rating: ${stars} Stars. Comment: ${comment}`);
 }
