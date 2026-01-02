@@ -20,7 +20,21 @@ body {
     overflow-x: hidden;
 }
 
-/* --- PURANA CODE (Jo tumne bheja) START --- */
+/* --- LOGO & BRANDING STYLE --- */
+.logo-img {
+    height: 35px;
+    width: auto;
+    filter: drop-shadow(0 0 5px var(--primary));
+    margin-right: 10px;
+}
+
+.shield-container img {
+    width: 100px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6));
+}
+
+/* --- HEADER & NAVIGATION --- */
 .main-header {
     padding: 15px;
     display: flex;
@@ -33,20 +47,8 @@ body {
     z-index: 100;
 }
 
-.kayo-shield-logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #ff8c00, #ff4500);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 24px;
-    box-shadow: var(--glow);
-}
-
-.logo-area h1 { font-size: 14px; margin-left: 10px; }
+.logo-area { display: flex; align-items: center; }
+.logo-area h1 { font-size: 14px; }
 .logo-area span { color: var(--primary); }
 
 .search-box {
@@ -66,6 +68,7 @@ body {
     font-size: 12px;
 }
 
+/* --- EDITOR CANVAS & TOOLS --- */
 .editor-section { padding: 20px; }
 .editor-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
 
@@ -85,16 +88,18 @@ body {
 .export-btn {
     background: var(--primary);
     border: none;
-    padding: 5px 15px;
-    border-radius: 5px;
+    padding: 8px 20px;
+    border-radius: 8px;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .quick-tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .tool { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px 5px; border-radius: 12px; color: white; font-size: 10px; text-align: center; }
 .tool i { font-size: 18px; margin-bottom: 5px; color: var(--primary); }
 
+/* --- AI CHAT & OVERLAYS --- */
 .chitthi-ai-btn {
     position: fixed;
     bottom: 90px;
@@ -110,26 +115,6 @@ body {
     z-index: 1000;
 }
 
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-top: 1px solid var(--glass-border);
-    z-index: 1000;
-}
-
-.official-footer { padding: 20px 20px 100px; text-align: center; font-size: 12px; }
-.footer-tabs { display: flex; justify-content: space-around; margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
-.security-tag { color: #00ff00; margin-top: 10px; }
-/* --- PURANA CODE END --- */
-
-/* --- NEW ADDITIONS (Kayo Ecosystem Features) --- */
-
-/* 🛡️ Login Screen Shield Effect (As per your Screenshot) */
 .login-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -142,7 +127,7 @@ body {
 }
 
 .shield-container {
-    width: 300px;
+    width: 320px;
     padding: 40px 20px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
@@ -160,45 +145,21 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 10px;
     color: white;
+    outline: none;
 }
 
-/* 🏠 85+ Services Gallery Modal */
-.gallery-modal {
+/* --- FOOTER & NAV --- */
+.bottom-nav {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.98);
-    z-index: 4000;
-    padding: 20px;
-    display: none; /* Hidden by default */
-    overflow-y: auto;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid var(--glass-border);
+    z-index: 1000;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.service-item {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 11px;
-}
-
-.service-item i { color: var(--primary); font-size: 20px; display: block; margin-bottom: 10px; }
-
-/* 👑 Admin Badge */
-.admin-badge {
-    background: red;
-    color: white;
-    font-size: 8px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    position: absolute;
-    top: -5px; right: -5px;
-}
+.official-footer { padding: 20px 20px 100px; text-align: center; font-size: 12px; }
+.security-tag { color: #00ff00; margin-top: 10px; }
