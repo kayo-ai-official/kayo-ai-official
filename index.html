@@ -17,84 +17,109 @@
             <input type="email" id="user-email" placeholder="Enter Email">
             <input type="password" placeholder="Enter Password">
             <button onclick="handleLogin()" class="export-btn" style="width: 100%; margin-top: 15px; padding: 12px;">LOGIN</button>
-            <p style="font-size: 10px; margin-top: 15px; opacity: 0.6;">Forgot Password? | Create Account</p>
         </div>
     </div>
 
-    <header class="main-header">
-        <div class="logo-area" style="display: flex; align-items: center;">
-            <img src="assets/kayo-logo.png" alt="K" style="height: 35px; margin-right: 10px;">
-            <h1 style="font-size: 14px;">KAYO AI <span>OFFICIAL</span></h1>
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Search 85+ AI Services...">
-            <i class="fas fa-search"></i>
-        </div>
-    </header>
+    <div id="main-content">
+        
+        <header class="main-header">
+            <div class="logo-area" style="display: flex; align-items: center;">
+                <img src="assets/kayo-logo.png" alt="K" style="height: 35px; margin-right: 10px;">
+                <h1 style="font-size: 14px;">KAYO AI <span>OFFICIAL</span></h1>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search 85+ AI Services...">
+                <i class="fas fa-search" onclick="showSection('tools')"></i>
+            </div>
+        </header>
 
-    <main class="editor-section">
-        <div class="editor-header">
-            <h3><i class="fas fa-video"></i> Professional AI Editor</h3>
-            <div class="export-options">
-                <button class="export-btn" onclick="editorTools.enhance()"><i class="fas fa-download"></i> 4K Export</button>
+        <div id="home-section" class="content-view" style="display: none;">
+            <div class="hero-banner" style="padding: 20px; text-align: center;">
+                <h2 style="color: var(--primary);">Future of AI Editing</h2>
+                <p style="font-size: 10px; opacity: 0.8;">One Ecosystem. 85+ Professional Tools.</p>
+            </div>
+
+            <div class="showcase-slider" style="padding: 20px;">
+                <div class="showcase-card" style="background: var(--glass); border-radius: 15px; padding: 10px;">
+                    <p style="font-size: 12px; margin-bottom: 5px; color: gold;">✨ Before vs After: AI 4K Upscale</p>
+                    <div style="display: flex; gap: 5px;">
+                        <div style="flex: 1; background: #333; height: 100px; border-radius: 5px; font-size: 9px; display: flex; align-items: center; justify-content: center;">Blurry (Low)</div>
+                        <div style="flex: 1; background: var(--primary); height: 100px; border-radius: 5px; color: black; font-size: 9px; display: flex; align-items: center; justify-content: center; font-weight: bold;">Kayo 4K (Ultra High)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-card" style="margin: 20px; background: linear-gradient(135deg, rgba(255,140,0,0.2), transparent); border: 1px solid var(--primary); padding: 20px; border-radius: 20px; text-align: center;">
+                <h3>Start 7-Day Free Trial</h3>
+                <p style="font-size: 11px; margin: 10px 0;">Get VIP access to all 85+ services with no watermark.</p>
+                <button class="export-btn" style="width: 100%;">Get VIP Plan</button>
             </div>
         </div>
 
-        <div class="canvas-area">
-            <div class="upload-placeholder">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <p>Drag & Drop or Click to Upload</p>
-                <small>High Quality AI Enhancement, Background Removal & Effects</small>
+        <div id="editor-section" class="content-view">
+            <main class="editor-section">
+                <div class="editor-header">
+                    <h3><i class="fas fa-video"></i> Professional AI Editor</h3>
+                </div>
+                <div class="canvas-area">
+                    <div class="upload-placeholder">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop to Upload</p>
+                    </div>
+                </div>
+                <div class="quick-tools">
+                    <button class="tool" onclick="editorTools.enhance()"><i class="fas fa-wand-magic-sparkles"></i> AI Enhance</button>
+                    <button class="tool" onclick="editorTools.removeBG()"><i class="fas fa-user-minus"></i> Remove BG</button>
+                    <button class="tool" onclick="editorTools.relight()"><i class="fas fa-lightbulb"></i> Relight</button>
+                    <button class="tool"><i class="fas fa-forward"></i> 120 FPS</button>
+                </div>
+            </main>
+        </div>
+
+        <div id="tools-section" class="content-view" style="display: none; padding: 20px;">
+            <h3 style="color: var(--primary); margin-bottom: 15px;">AI Services Gallery</h3>
+            
+            <div class="tool-category">
+                <p style="font-size: 12px; margin-bottom: 10px; opacity: 0.7;">Video & Image Pro Tools</p>
+                <div class="gallery-grid" id="service-list">
+                    </div>
             </div>
         </div>
 
-        <div class="quick-tools">
-            <button class="tool" onclick="editorTools.enhance()"><i class="fas fa-wand-magic-sparkles"></i> AI Enhance</button>
-            <button class="tool" onclick="editorTools.removeBG()"><i class="fas fa-user-minus"></i> Remove BG</button>
-            <button class="tool" onclick="editorTools.relight()"><i class="fas fa-lightbulb"></i> Relight</button>
-            <button class="tool"><i class="fas fa-forward"></i> 120 FPS</button>
-        </div>
-    </main>
+    </div>
 
     <nav class="bottom-nav">
-        <div class="nav-item active"><i class="fas fa-edit"></i><br>Editor</div>
-        <div class="nav-item main-home" onclick="openGallery()"><i class="fas fa-th-large"></i><br>Home</div>
-        <div class="nav-item"><i class="fas fa-crown"></i><br>VIP Plan</div>
+        <div class="nav-item" onclick="showSection('editor')"><i class="fas fa-edit"></i><br>Editor</div>
+        <div class="nav-item" onclick="showSection('home')"><i class="fas fa-home"></i><br>Home</div>
+        <div class="nav-item" onclick="showSection('tools')"><i class="fas fa-th-large"></i><br>Tools</div>
+        <div class="nav-item" onclick="showSection('home')"><i class="fas fa-crown"></i><br>VIP</div>
     </nav>
 
     <div class="chitthi-ai-btn" id="chat-trigger">
-        <div class="pulse"></div>
         <i class="fas fa-comment-dots"></i>
-        <span>Chat with Kayo (Official)</span>
+        <span>Chat with Kayo</span>
     </div>
-
-    <footer class="official-footer">
-        <div class="footer-tabs">
-            <span onclick="alert('Kayo AI v2.0 - Built by Kanhu & Chitthi')">About Us</span>
-            <span onclick="alert('Current Rating: 4.9/5 ★')">Ratings & Reviews</span>
-            <span onclick="prompt('Write your comment:')">Comments</span>
-        </div>
-        <div class="security-tag">
-            <i class="fas fa-shield-alt"></i> SSL SECURE & TRUST BUILD SHIELD
-        </div>
-    </footer>
 
     <script src="config.js"></script>
     <script src="main.js"></script>
 
     <script>
+        // Tab Switching Logic
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-view').forEach(view => view.style.display = 'none');
+            document.getElementById(sectionId + '-section').style.display = 'block';
+            
+            // Highlight active nav item
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            if(sectionId === 'editor') document.querySelector('.nav-item:nth-child(1)').classList.add('active');
+        }
+
         function handleLogin() {
             const email = document.getElementById('user-email').value;
-            if(email) {
-                // Redirect if it's the Admin
-                if(email === "hellokayo.official@gmail.com") {
-                    window.location.href = "admin.html";
-                } else {
-                    document.getElementById('login-overlay').style.display = 'none';
-                    if(typeof checkAdminAccess === "function") checkAdminAccess(email);
-                }
-            } else {
-                alert("Please enter email to access Kayo Ecosystem");
+            if(email === "hellokayo.official@gmail.com") {
+                window.location.href = "admin.html";
+            } else if(email) {
+                document.getElementById('login-overlay').style.display = 'none';
             }
         }
     </script>
