@@ -1,4 +1,4 @@
-/* style.css - Kayo Neural Official Professional Theme */
+/* style.css - Kayo Neural Official Professional Theme (Full Ecosystem) */
 :root {
     --primary: #ff8c00; /* Kayo Orange */
     --bg-dark: #050505;
@@ -68,13 +68,69 @@ body {
     font-size: 12px;
 }
 
+/* --- MASTER HOME SECTION (New) --- */
+.hero-banner {
+    background: linear-gradient(to bottom, rgba(255,140,0,0.1), transparent);
+    border-radius: 20px;
+    margin: 15px;
+    border: 1px solid var(--glass-border);
+}
+
+.showcase-slider {
+    overflow-x: auto;
+    display: flex;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.showcase-card {
+    min-width: 280px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* 💎 VIP PRICING CARD (MacBook Look) */
+.pricing-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 20px;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    background: linear-gradient(to right, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.pricing-card::before {
+    content: 'PREMIUM';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--primary);
+    color: black;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 5px 35px;
+    transform: rotate(45deg);
+}
+
 /* --- EDITOR CANVAS & TOOLS --- */
 .editor-section { padding: 20px; }
-.editor-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
-
 .canvas-area {
     width: 100%;
-    height: 350px;
+    height: 320px;
     background: var(--glass);
     border: 2px dashed var(--glass-border);
     border-radius: 20px;
@@ -88,33 +144,40 @@ body {
 .export-btn {
     background: var(--primary);
     border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
     color: black;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
+
+.export-btn:hover { transform: scale(1.05); box-shadow: var(--glow); }
 
 .quick-tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.tool { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px 5px; border-radius: 12px; color: white; font-size: 10px; text-align: center; }
+.tool { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px 5px; border-radius: 12px; color: white; font-size: 10px; text-align: center; cursor: pointer; }
 .tool i { font-size: 18px; margin-bottom: 5px; color: var(--primary); }
 
-/* --- AI CHAT & OVERLAYS --- */
-.chitthi-ai-btn {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background: var(--glass);
-    border: 1px solid var(--primary);
-    padding: 10px 15px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--glow);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+/* --- TOOLS GALLERY GRID --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 }
 
+.service-item {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 15px 5px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.service-item:hover { background: rgba(255,140,0,0.1); border-color: var(--primary); }
+
+/* --- LOGIN & OVERLAYS --- */
 .login-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -148,7 +211,7 @@ body {
     outline: none;
 }
 
-/* --- FOOTER & NAV --- */
+/* --- BOTTOM NAV & CHAT --- */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -156,10 +219,28 @@ body {
     background: rgba(0,0,0,0.95);
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 12px;
     border-top: 1px solid var(--glass-border);
     z-index: 1000;
 }
 
+.nav-item { text-align: center; font-size: 10px; opacity: 0.6; cursor: pointer; }
+.nav-item.active { color: var(--primary); opacity: 1; text-shadow: var(--glow); }
+
+.chitthi-ai-btn {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: var(--glass);
+    border: 1px solid var(--primary);
+    padding: 12px 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--glow);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
 .official-footer { padding: 20px 20px 100px; text-align: center; font-size: 12px; }
-.security-tag { color: #00ff00; margin-top: 10px; }
+.security-tag { color: #00ff00; margin-top: 10px; font-weight: bold; }
