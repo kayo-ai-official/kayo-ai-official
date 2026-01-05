@@ -3,84 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayo AI Official | All-in-One Ecosystem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Kayo Pro Editor | Official</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="kayo-dark-theme">
 
-    <div id="login-overlay" class="login-overlay">
-        <div class="shield-container">
-            <img src="./assets/logo.png" alt="Kayo Logo" style="width: 80px; margin-bottom: 20px;">
-            <h2 style="color: white; margin-bottom: 20px; font-size: 18px;">KAYO AI LOGIN</h2>
-            <input type="email" id="user-email" placeholder="Enter Email">
-            <input type="password" id="user-pass" placeholder="Enter Password">
-            <button onclick="handleLogin()" class="export-btn" style="width: 100%; margin-top: 15px;">LOGIN</button>
-        </div>
-    </div>
-
-    <header class="main-header">
-        <div class="logo-area">
-            <img src="./assets/logo.png" alt="K" style="height: 35px; margin-right: 10px;">
-            <h1>KAYO AI <span>OFFICIAL</span></h1>
-        </div>
+    <header class="editor-header">
+        <div class="logo">KAYO <span class="gold-text">AI OFFICIAL</span></div>
         <div class="search-box">
-            <input type="text" placeholder="Search 85+ Tools...">
             <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search 85+ AI Services...">
         </div>
     </header>
 
-    <div id="main-content" style="padding-bottom: 100px;">
-        <div id="home-section" class="content-view" style="display: none;">
-            <div class="hero-banner" style="padding: 20px; text-align: center;">
-                <h2 style="color: var(--primary);">Future of AI Editing</h2>
-                <p style="font-size: 10px; opacity: 0.8;">One Ecosystem. 85+ Professional Tools.</p>
-            </div>
-            <div id="before-after-display"></div>
-            
-            <div class="pricing-card">
-                <h3>Start 7-Day Free Trial</h3>
-                <p style="font-size: 11px;">VIP access to all 85+ services.</p>
-                <button class="export-btn" style="width: 100%; margin-top: 15px;">Get VIP Plan</button>
+    <main class="editor-body">
+        <div class="preview-container">
+            <div class="upload-zone" id="drop-zone">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <p>Drag & Drop to Upload Image/Video</p>
+                <input type="file" id="fileInput" hidden>
             </div>
         </div>
 
-        <div id="editor-section" class="content-view">
-            <main class="editor-section">
-                <div class="canvas-area">
-                    <div class="upload-placeholder" onclick="editorTools.enhance()">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Upload Image/Video</p>
-                    </div>
-                </div>
-                <div class="quick-tools">
-                    <button class="tool" onclick="editorTools.enhance()"><i class="fas fa-wand-magic-sparkles"></i>Enhance</button>
-                    <button class="tool" onclick="editorTools.removeBG()"><i class="fas fa-user-minus"></i>Remove BG</button>
-                    <button class="tool" onclick="editorTools.generateVoice()"><i class="fas fa-microphone"></i>AI Voice</button>
-                    <button class="tool"><i class="fas fa-forward"></i>120 FPS</button>
-                </div>
-            </main>
+        <div class="quick-tools">
+            <div class="tool-btn highlight"><i class="fas fa-wand-magic-sparkles"></i> AI Enhance</div>
+            <div class="tool-btn"><i class="fas fa-user-minus"></i> Remove BG</div>
+            <div class="tool-btn"><i class="fas fa-microphone"></i> AI Voice</div>
+            <div class="tool-btn"><i class="fas fa-bolt"></i> 120 FPS</div>
         </div>
-
-        <div id="tools-section" class="content-view" style="display: none; padding: 20px;">
-            <h3 style="color: var(--primary); margin-bottom: 15px;">AI Services Gallery</h3>
-            <div class="gallery-grid" id="service-list"></div>
-        </div>
-    </div>
+    </main>
 
     <nav class="bottom-nav">
-        <div class="nav-item active" onclick="showSection('editor')"><i class="fas fa-edit"></i><br>Editor</div>
-        <div class="nav-item" onclick="showSection('home')"><i class="fas fa-home"></i><br>Home</div>
-        <div class="nav-item" onclick="showSection('tools')"><i class="fas fa-th-large"></i><br>Tools</div>
+        <div class="nav-item active"><i class="fas fa-edit"></i><p>Editor</p></div>
+        <div class="nav-item"><i class="fas fa-home"></i><p>Home</p></div>
+        <div class="nav-item"><i class="fas fa-th-large"></i><p>Tools</p></div>
+        <div class="nav-item"><i class="fas fa-crown"></i><p>VIP</p></div>
     </nav>
 
-    <div class="chitthi-ai-btn" id="chat-trigger">
-        <i class="fas fa-comment-dots"></i>
-        <span>Chat with Chitthi</span>
-    </div>
-
-    <script src="config.js"></script>
-    <script src="main.js"></script>
 </body>
 </html>
